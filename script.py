@@ -4,8 +4,6 @@ from numpy import sign
 import numpy as np
 from numpy.lib.scimath import sqrt
 from matplotlib import pyplot as plt
-from matplotlib.path import Path
-import matplotlib.patches as patches
 #Definicion de variable
 x = Symbol('x')
 #Definicion de funciones
@@ -44,7 +42,8 @@ print(c,d)
 region = [(a,c),(a,d),(b,c),(b,d)]
 #Area de la region anterior
 area = (b-a)*(d-c)
-print(region,area)
+print("Los puntos que conforman la region bidimensional donde se encuentra el extremo de la columna izquierda:",region)
+print("Con el area: ",area)
 #Impresion del resultado
 #intervalo
 inter= np.arange(-2,1.7,step=0.01)
