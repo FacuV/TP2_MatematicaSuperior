@@ -1,4 +1,4 @@
-from sympy import init_session,plot,Symbol,diff,cos,exp,sympify,N,lambdify
+from sympy import Symbol,diff,cos,exp,lambdify
 import math
 from numpy import sign
 import numpy as np
@@ -77,27 +77,14 @@ print("Con el metodo de Newton")
 print("Los puntos que conforman la region bidimensional donde se encuentra el extremo de la columna izquierda:",regionN)
 print("Con el area: ",areaN)
 print("Con la cantidad de iteraciones: ",iteracionesN)
-
-##Impresion del resultado
-##intervalo
-#inter= np.arange(-2,1.7,step=0.01)
-##Funciones
-#plt.plot(inter,fn1(inter))
-#plt.plot(inter,fn2(inter))
-##Puntos que conforman la region
-#plt.plot(a,c, marker="o", color="black")
-#plt.plot(a,d, marker="o", color="blue")
-#plt.plot(b,c, marker="o", color="green")
-#plt.plot(b,d, marker="o", color="red")
-#plt.plot(raiz,valorEnRaiz, marker="o", color="yellow")
-#plt.grid()
-#plt.show()
-
 ###Para obtener posicion de la columna derecha:
 iteracionesf2,raizf2,errorf2 = Muller(fn21,-1,-0.5,0,(1e-4))
+A = raizf2 - errorf2
+B = raizf2 + errorf2
 #Distancia entre columnas
-distanciaColumnas = sqrt((raiz-raizf2)**2+(fn2(raiz)-fn2(raizf2))**2)
-print(distanciaColumnas)
+distanciaColumnasA = sqrt((a-A)**2+(fn2(a)-fn2(A))**2)
+distanciaColumnasB = sqrt((b-B)**2+(fn2(b)-fn2(B))**2)
+print("Distancia entre extremos de columnas: ",[distanciaColumnasA,distanciaColumnasB]," Con error : ",distanciaColumnasB-distanciaColumnasA)
 ##Impresion del resultado
 inter= np.arange(-2,1.7,step=0.01)
 plt.plot(inter,fn1(inter))
